@@ -18,7 +18,7 @@ const Card = (props) => {
           // phle se liked nhi hai ie we have to insert it
           if(likedCourse.length===0){
             console.log("phle se liked nhi hai &Empty")
-            setLikedCourse(course.id);
+            setLikedCourse(course.id); 
           }
           else{
             //non-empty phle se

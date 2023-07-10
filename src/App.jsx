@@ -14,13 +14,14 @@ function App() {
  
   const [courses,setCourses]=useState(null);
   const[loading,setLoading]=useState(true);
+  const [category,setCategory]=useState(filterData[0].title)
   async function fetchData(){
     setLoading(true);
     try{
       let response = await fetch(apiUrl);
       let output= await response.json();
       //setting output data
-      console.log(output);
+      console.log(output.data);
       setCourses(output.data);
     }
     catch(error){
@@ -35,10 +36,11 @@ function App() {
   return (
     <div className='min-h-screen flex flex-col'>
      <div> <Navbar /></div>
-     <div> <Filter filterData={filterData} /></div>
+     <div> <Filter filterData={filterData} category={category} setCategory={setCategory}/></div>
       <div className='w-11/12 max-w-{1200px} flex justify-center items-center min-h-[50vh]'>
         {
-          loading?(<Spinner/>):(<Cards courses={courses}/>)
+          loading?(<Spinner/>):(<Cards courses={courses}  category={category}
+            setCategory={setCategory}/>)
         }
       </div>
     </div>
