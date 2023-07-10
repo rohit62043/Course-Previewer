@@ -5,8 +5,9 @@ import Filter from './Components/Filter'
 import Cards from './Components/Cards'
 import { apiUrl, filterData } from './data'
 import { useEffect, useState } from 'react'
-import { toast} from 'react-toastify'
 import Spinner from './Components/Spinner'
+import { toast } from 'react-toastify';
+
 
 
 function App() {

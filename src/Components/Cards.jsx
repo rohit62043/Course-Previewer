@@ -1,10 +1,12 @@
 /* eslint-disable react/prop-types */
 // eslint-disable-next-line no-unused-vars
-import React from 'react'
+import React, { useState } from 'react'
 import Card from './Card'
 
 const Cards = (props) => {
     let courses=props.courses;
+    //the likedcourse will contain id of tha course which is liked
+    const [likedCourse,setLikedCourse] = useState([null]);
 
     function getCourse(){
         let allCourses=[];
@@ -20,7 +22,10 @@ const Cards = (props) => {
     <div className='flex flex-wrap justify-center gap-4 mb-4'>
        {
         getCourse().map((course)=>{
-          return <Card key={course.id} course={course}/>
+          return <Card key={course.id} 
+          course={course} 
+          likedCourse={likedCourse} 
+          setLikedCourse={setLikedCourse}/>
         })
        }
     </div>
